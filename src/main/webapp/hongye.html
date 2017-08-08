@@ -1,0 +1,195 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="zh-cn" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>雅派团队</title>
+    
+<!-- <link id="_link" rel="Stylesheet" href="http://zy.cccpan.com/zy/b_old/js/st_2.aspx?bb=2&fg=3&tp=http://zy.cccpan.com/zy/b_old/tp" type="text/css" /> -->
+
+<link type="text/css" rel="Stylesheet" href="http://ys.chunge188.com/script/css2/dodgerblue.css">
+<style>.ystop{background-image:url(/exam-web/image/top1.png);}</style>
+</head>
+<base target="ys_ck" />
+
+
+<body scroll="no" style="height:100%;">
+
+<table id="ta_z" border="0" width="100%" height="100%" cellspacing="0" cellpadding="0" style="min-width:670px">
+
+<tr><td height="70" class="tdtop" id="idtop">
+<!------wgsm-------->
+	<div class="ystop">
+
+	<h1 id="kjbt">雅派团队</h1><p id="sylj"><img border=0 src='http://zy.cccpan.com/zy/b_old/tp/point.gif' width=12 height=8><a  href='http://www.hongye168.ys168.com/' target=_blank>                              </a>&nbsp;</p>
+	</div>
+
+</td></tr>
+<tr><td style="padding-top:8px;">
+
+<table border="0" width="100%" height="100%" cellspacing="0" cellpadding="0"><tr><td width="255" valign="top" style="padding:0 5px 0 5px;">
+
+<table border="0" width="255" height="100%" cellspacing="0" cellpadding="0">
+<tr><td valign="top" style="height:22px;">
+	<div id="ysmenu" style="width:255px;">
+            <div class="ysm1" id="mm1" style="display:block;margin-left:2px;" onmouseover="mlq_ov(this);" onmouseout="mlq_ou(this);" onclick="qhzml(1)">留 言</div>
+            <div class="ysm0" id="mm2" style="display:block;" onmouseover="mlq_ov(this);" onmouseout="mlq_ou(this);" onclick="qhzml(2)">增加目录</div>
+            <div class="ysm0" id="mm3" style="display:block;" onmouseover="mlq_ov(this);" onmouseout="mlq_ou(this);" onclick="qhzml(3)">上传文件</div>
+            <div class="ysm0" id="mm4" style="display:block;" onmouseover="mlq_ov(this);" onmouseout="mlq_ou(this);" onclick="qhzml(4)">管理区</div>
+	</div>
+</td></tr><tr><td valign="top" style="height:127px;min-height:125px;" id="idczq">	
+<!--操作区开始-->
+<div id="ysmenu1" style="width:255px;height:100%;">
+<div id='ml_1' style="display:block;padding-top:8px;">
+	<p>姓名:<input type="text" id="xm" size="8" class="TX3">
+		公开:<input type="checkbox" id="bdgkpdlyb"  checked >
+		<img border="0" src="http://zy.cccpan.com/zy/b_old/tp/sty/00zxz1.gif" width="15" height="15" onclick="changetp('z');" style="cursor:pointer;">
+		<img border="0" name="t_bq" src="http://zy.cccpan.com/zy/b_old/tp/face2/f1.gif" width="15" height="15">
+		<img border="0" src="http://zy.cccpan.com/zy/b_old/tp/sty/00zxy1.gif" width="15" height="15" onclick="changetp('y');" style="cursor:pointer;"> 
+		<input type="hidden" id="bdbq" value="1" />
+	</p>
+	<p><textarea id="nr"></textarea></p>
+	<p>
+        <label for="lyb_gly" title="选中后以管理员身份进行留言。显示有特殊标识">以管理员身份</label><input type="checkbox" id="lyb_gly" title="选中后以管理员身份进行留言。显示有特殊标识">
+        <label for="lyb_zd" title="选中后此留言将置顶显示">置顶</label><input type="checkbox" id="lyb_zd" title="选中后此留言将置顶显示">
+	<input type="button" value="提交留言" onclick="checkly('');" class='BT2' id="buly" /></p>
+</div>
+<div id='ml_2'  style="display:none;padding-top:8px;">
+    <p style="margin-top:15px;">增加目录时，可对目录权限进行设置。</p>
+	<p style="margin-top:40px; margin-left:70px;"><input style="width:80px;height:23px;" type="button" id="sutjbt" value=" 增加目录 " onclick="_m.tjx();" class='BT2'/></p>
+</div>
+
+<div id='ml_3' style="display:none;padding-top:8px;" >
+	<div style="border-bottom:1px dashed black;text-align:center;margin-bottom:10px;">
+	    <input type="radio" id="wjlx1" name="r1" checked="checked"  onclick="changelx(1);" style="cursor:pointer;"/><label for="wjlx1" style="cursor:pointer;">上传文件</label>
+	    <input type="radio" id="wjlx2" name="r1" onclick="changelx(2)" style="cursor:pointer;"/><label for="wjlx2" style="cursor:pointer;">链接网址</label>
+	    <input type="radio" id="wjlx3" name="r1" onclick="changelx(3)" style="cursor:pointer;"/><label for="wjlx3" style="cursor:pointer;">子目录</label>
+	</div>
+	<div id="idwj1" style="display:block;">
+		<div id="rqfile1" style="margin-left:16px;">
+			<iframe style="display:block;" name="upf_0" id="upf_0"  src="upfile/up.htm?003092" height="24" width="230" scrolling=no frameborder="0"></iframe>
+		</div>
+		<div id="rqfile" style="margin-left:16px;display:none;"></div>
+		<p><label>备注:</label><input type="text" id="scbt" style="width:180px;" class="tx3" onkeypress="if (window.event.keyCode==13){filesc2.focus();return false;}"/></p>
+		<div  id="filesczt1" style="display:block;">
+			<p style="margin-top:8px;margin-bottom:8px;">
+			<input type="checkbox" id="scmore" value="ON" onclick="fmore();"><label for="scmore" style="cursor:pointer;">同时上传多个</label>
+			<input type="button" value="开始上传" class="bt2" id="filesc2" onclick="_C.kq(_CK.scjd);"/></p>
+		</div>
+		<div id="filesczt2" style="display:none;"></div>
+	</div>
+	<div id="idwj2" style="display:none;">
+		<p>标题:<input type=text id="scbt2" class="tx3" size=26></p>
+		<p>网址:<input type=text id="teljdz" class=tx3 size=26></p>
+		<p align="center"><input type="button" value="增加链接" onclick="checkfu();" class='BT2' id="bulj"/></p>
+	</div>
+	<div id="idwj3" style="display:none;">
+		<p>子目录名:<input type=text id="tezml" class=tx3 size=20 style="background-color:#FFEBCD" onkeypress="if (window.event.keyCode==13){$id('buzml').click();return false;}" /></p>
+		<p align=center><input type="button" value="增加子目录" onclick="_zml.cj();"  class='BT2' id="buzml"></p>
+	</div>	
+</div>
+<div id='ml_4'  style="display:none;padding-top:15px;">
+	<div id='glyq1' style="display:block;">
+		<p>管理密码:<input type="password" id="bdglymm" onkeypress="if (window.event.keyCode==13){sutjgl.click();}"  class="tx3" style="height:18px; width:50px">
+		<input type=button value="登录" onclick="checkgl('');" class='BT2' id="sutjgl"/>
+        <input type=button value="空间设置" onclick="alert('请在管理区登录后进行设置');" class="BT2" style="text-decoration: line-through;"/>
+		</p>
+		<p><font color='#008000'>注:管理员登录后可以编辑、删除空间内文件、目录、留言等。</font></p>
+	</div>
+	<div id='glyq2' style="display:none;">
+		<p>空间级别:<span id="L_kjjb">免费型空间(1000M)</span></p>
+		<p>到期日期:<span id="L_fwdq">未定&nbsp;&nbsp;<a class=actuatorn href='http://www.ys168.com/ht/kjsj.aspx?dlmc=hongye168' target=_blank>[升级空间]</a></span></p>
+		<p align="center">
+		<input type="button" value="空间设置" onclick="_C.kq(_CK.bjym);" style="color:Blue;"/>
+		<input type=button value="退出管理" id='glytc'  class='bt2' onclick="fglytc();"></p>
+	</div>
+	<div>
+		<p>
+			<img src="http://zy.cccpan.com/zy/b_old/tp/wh.gif" width="14" height="14"/><a class="jaml"  href="javascript:" onclick="kq_help();">如何编辑删除数据</a>
+			<img src="http://zy.cccpan.com/zy/b_old/tp/go.gif" width="16" height="16"/><a  href="http://www.ys168.com/ht/login.aspx?dlmc=hongye168" class="jaml" target="_blank">进入空间后台</a>
+		</p>
+	</div>
+
+</div>
+</div>
+</td></tr>
+<tr><td height="5"></td></tr>
+<tr><td valign="top">
+    <div id="lyz" class="lynrc">
+        <div id="lynr"><label>正在读取...</label></div>
+        <div style="text-align:right;margin-top:5px;margin-right:5px;">
+            留言总数：<label id="ly_zs"></label>，页数：<label id="ly_dqys"></label>/<label id="ly_zys"></label>
+            <div style="margin-top:5px;margin-bottom:5px;">
+                <button class='bt2' id="bu_ly1" onclick ="_lydq(1)" >首页</button>
+                <button class='bt2' id="bu_ly2" onclick ="_lydq(2)" >上页</button>
+                <button class='bt2' id="bu_ly3" onclick ="_lydq(3)" >下页</button>
+                <button class='bt2' id="bu_ly4" onclick ="_lydq(4)" >尾页</button>
+            </div>
+        </div>
+    </div>
+    </td></tr>
+<tr><td height="5">
+</td></tr>
+</table>
+<!--左边窗口结束-->
+</td><td style="padding:0 5px 5px 0">
+<table border="0" width="100%" height="100%" cellspacing="0" cellpadding="0"><tr><td style="border:1px solid #000000;">
+			<table border="0" width="100%" height="100%" cellspacing="0" cellpadding="0">
+			<tr height="20" class="ta_wjq"><td>
+			    <div style="float:right;width:250px;text-align:right;">
+					空间:<label id="kjz1">1000</label>M
+					剩余:<label id="kjz2">-</label>M
+					在线:<label id="zxrsts" style="color:yellow;">0</label>人&nbsp;
+				</div>
+				<div style="padding-left:5px;">
+				目录列表
+				</div>
+			</td></tr>
+			<tr><td valign="top" style="word-wrap:break-word;word-break:break-all;">
+    			<div id="dzx" style="height:100%;word-wrap: break-word; word-break: normal;overflow-y :scroll;background-color:#ffffff;">
+				        <div id="zdy_wz0" style="display:none; float:right;">
+				            <div id='idzdy' class='yszdyq' style="display:none;"></div>
+				            <div id='idzdy1' class='yszdyq' style="display:none;"></div>
+				        </div>
+	                    <div id="mainMenu"><ul id="menuList"><li style="margin:3px;BORDER-BOTTOM:0;">正在读取...</li></ul></div>
+	                    <div id="zdy_bz"></div>
+	                    <p id="sxts" style="text-align:right;">
+                        <a href="javascript:;" style="font:9pt;" onclick="_m.tjx();" id="sutjbt2"><img src="http://zy.cccpan.com/zy/b_old/tp/addml.png" style="vertical-align:middle;" />增加目录</a>
+	                    <a href='javascript:' style="font:9pt;margin-left:10px; " onclick="if (confirm('是否刷新目录数据？'))_m.cxdq();" class='a1'><img src="http://zy.cccpan.com/zy/b_old/tp/refresh.gif" style="vertical-align:middle;" />刷新目录</a></p>
+				        <div style=" margin-left:10px;" id="mfkjtz"></div>
+				
+                    
+                </div>
+				<div style="clear:both;"></div>
+			</td></tr>
+			</table>
+</td></tr>
+<tr><td height="30" id="idsyjy">
+	<table border="0" width="100%" height="100%" cellpadding="0" id="table2">
+	<tr><td height="20" style="word-wrap:break-word;word-break:break-all;">
+	<span id="gbtz"></span>
+        <span id="emyz"></span>
+	<span id="dqtz"></span>
+	<label id="laczts"><font color='red'>抱歉，为了便于监管有害代码，免费空间不支持显示script代码和iframe。</font></label>
+	</td></tr><tr><td height="30">
+	        <p align ="right"><span style='font-size: 9pt'><a href='http://ys168.com/eform/eform.aspx' target='_blank'><Font color='#000000'>[举报]</Font></a></span>
+
+	        
+                
+			<input type="button" value="在线列表"  class='bt2' onclick="_C.kq(_CK.zxlb);"/>
+			<input type="button" id="buxz" value="下载记录" onclick="_C.kq(_CK.xzlb);" class='bt2'/>
+			<input type="button" id="buexit" value="退出系统" onclick="tc();" class="bt2"/>
+			</p>
+			
+			<iframe name="frxcx" id="frxcx" src="http://c1.cccpan.com/cx_old/Ccenter.aspx?z=2ee2KGH5833OjtoiUk2JMMNI4OyL3438134613425L34QM3j47" style="display:none;"></iframe>
+		    <iframe name="ys_ck" src="javascript:" style="display:none ;"></iframe>
+</td></tr></table>
+	
+</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<div id="ctrq"></div>
+</body>
+
+</html>

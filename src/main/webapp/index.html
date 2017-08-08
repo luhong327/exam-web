@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 第一部分：样式文件 -->
+<!-- 1.默认主题文件 -->
+<link rel="stylesheet" type="text/css" href="css/themes/default/easyui.css" />
+
+<!-- 2.图标的样式文件 -->
+<link rel="stylesheet" type="text/css" href="css/themes/icon.css" />
+<!-- 自定义样式 -->
+<link rel="stylesheet" type="text/css" href="css/layout.css">
+<style>
+	div.north{
+		width:auto;
+		height:200px;
+		background-image: url(/exam-web/image/top1.png)
+	}
+</style>
+<!-- 第二部分：JavaScript库文件 -->
+<!-- 1.jQuery的库文件——一定要比EasyUI的库文件先引入 -->
+
+<script type="text/javascript" src="jQuery/jquery.min.js"></script>
+
+<!-- 2.EasyUI的主体库文件 -->
+<script type="text/javascript" src="jQuery/jquery.easyui.min.js"></script>
+
+<!-- 3.本地化文件 -->
+<script type="text/javascript" src="jQuery/easyui-lang-zh_CN.js"></script>
+
+<script type="text/javascript">
+	
+	$(function(){
+		
+		$("#formWindow").window({
+			onClose:function(){
+				$("#empForm").form("clear");
+			}
+		});
+		
+		$("#empForm").form({
+			success:function(){
+				$("#empDataGridWithPage").datagrid("reload");
+			}
+		});
+		
+		$("#formSubmitBtn").linkbutton({
+			onClick:function(){
+				$("#empForm").form("submit");
+				$("#formWindow").window("close");
+				$("#empForm").form("clear");
+			}
+		});
+		
+		$("#empDataGridWithPage").datagrid({
+			url:"/exam-web/getPhonePageRemote",
+			fit:true,
+			pagination:true,
+			singleSelect:true,
+		    columns:[[
+		        {field:'phoneId',title:'手机编号'},    
+		        {field:'phoneName',title:'手机名'},    
+		        {field:'phonePrice',title:'手机价格'},
+		        {field:'phoneColor',title:'手机颜色'}  
+		    ]],
+		    toolbar:[{
+		    	iconCls:'icon-add',
+		    	text:'添加手机信息',
+		    	handler:function(){
+		    		$("#formWindow").window("open");
+		    		$("#empForm").form({url:"/exam-web/savePhone"});
+		    	}
+		    },{
+		    	iconCls:'icon-remove',
+		    	text:'删除手机信息',
+		    	handler:function(){
+		    		var selectedRow = $("#empDataGridWithPage").datagrid("getSelected");
+		    		console.log(selectedRow);
+		    		
+		    		if(selectedRow == null) {
+		    			
+		    			$.messager.alert("删除","请选择一条信息！","info");
+		    			
+		    		}else{
+		    			
+		    			$.messager.confirm("删除","您确定要删除选中的这条信息么？",function(result){
+		    				if(result) {
+		    					
+		    					var phoneId = selectedRow.phoneId;
+		    					
+		    					$.post("/exam-web/removePhone/"+phoneId,function(){
+		    						$("#empDataGridWithPage").datagrid("reload");
+		    					});
+		    					
+		    				}else{
+		    					$.messager.show({
+		    						title:'删除',
+		    						msg:'你取消了删除操作！',
+		    						timeout:2000,
+		    						showType:'slide'
+		    					});
+		    				}
+		    			});
+		    			
+		    		}
+		    		
+		    	}
+		    },{
+		    	iconCls:'icon-edit',
+		    	text:'编辑手机信息',
+		    	handler:function(){
+		    		
+		    		var selectedRow = $("#empDataGridWithPage").datagrid("getSelected");
+		    		
+		    		if(selectedRow == null) {
+		    			
+		    			$.messager.alert("修改","请选择您要修改的信息 ！","info");
+		    			
+		    		}else{
+		    			var phoneId = selectedRow.phoneId;
+			    		$("#formWindow").window("open");
+			    		$("#empForm").form({url:"/exam-web/updatePhone?phoneId="+phoneId}).form("load",selectedRow);
+			    		
+		    		}
+		    		
+		    	}
+		    }]
+		});
+		
+		$("#empDataGrid").datagrid({
+			url:"/exam-web/getPhoneListRemote",
+			fit:true,
+			fitColumns:true,
+		    columns:[[
+		        {field:'phoneId',title:'手机编号'},    
+		        {field:'phoneName',title:'手机名'},    
+		        {field:'phonePrice',title:'手机价格'},
+		        {field:'phoneColor',title:'手机颜色'}
+		    ]]
+		});
+		
+		$("#openTabOneBtn").linkbutton({
+			iconCls:'icon-help',
+			onClick:function(){
+				$("#tt").tabs("select","TabOne");
+			}
+		});
+	});
+	
+</script>
+
+</head>
+<body class="easyui-layout">   
+    <div class="north" data-options="region:'north',title:'North Title',split:true"></div>
+    <div data-options="region:'west',title:'West',split:true" style="width:150px;">
+    	<div id="aa" class="easyui-accordion" data-options="fit:true">   
+		    <div title="Title1" data-options="iconCls:'icon-save',selected:true" style="overflow:auto;padding:0px;">
+		    	
+		    	<a id="openTabOneBtn" class="easyui-linkbutton" style="width: 100%">一</a>
+		    	
+		    </div>   
+		    <div title="Title2" data-options="iconCls:'icon-reload'" style="padding:10px;">   
+		        content2    
+		    </div>   
+		    <div title="Title3">   
+		        content3    
+		    </div>   
+		</div> 
+    </div>   
+    <div data-options="region:'center',title:'center title'" style="padding:5px;background:#eee;">
+    	
+    	<div id="tt" class="easyui-tabs" data-options="fit:true,selected:0">
+    		<div title="TabOne">
+    			<table id="empDataGridWithPage"></table>
+    		</div>
+<!--     		<div title="gridTab"> -->
+<!--     			<table id="empDataGrid"></table> -->
+<!--     		</div> -->
+    	</div>
+    	
+    </div>   
+    <div data-options="region:'south',title:'South Title',split:true" style="height:100px;text-align: center;">
+    	&copy;版权归尚硅谷国际教育集团所有
+    </div>
+    
+    <div id="formWindow" class="easyui-window" data-options="closed:true,modal:true" style="width: 300px;height: 250px;text-align: center;padding-top: 30px;">
+    	<form id="empForm" class="easyui-form" method="post">
+    	          手机编号：<input disabled="disabled" type="text" name="phoneId"/><br/><br/>
+    		手机名称：<input type="text" name="phoneName"/><br/><br/>
+    		手机价格：<input type="text" name="phonePrice"/><br/><br/>
+    		手机颜色：<input type="text" name="phoneColor"/><br/><br/>
+    		<a id="formSubmitBtn" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a>
+    	</form>
+    </div>
+    
+</body>  
+</html>
